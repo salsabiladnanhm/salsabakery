@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- bakery.order tree view -->
+    <record id="bakery_order_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Order</field>
+        <field name="model">bakery.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="tanggal_pesan"/>                        
+                <field name="nama_pemesan"/>
+                <field name="jenis_pembayaran"/> 
+                <field name="total_harga_order"/>         
+            </tree>
+        </field>
+    </record>
+    
+    <!-- bakery.order form view -->
+    <record id="bakery_order_view_form" model="ir.ui.view">
+        <field name="name">Form Order</field>
+        <field name="model">bakery.order</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="tanggal_pesan"/>                        
+                        <field name="nama_pemesan"/>
+                        <field name="jenis_pembayaran"/>
+                        <field name="total_harga_order"/>  
+                        <field name="menu_ids">
+                            <tree editable='bottom'>
+                                <field name="menu_order_id"/>  
+                                <field name="harga_satuan"/> 
+                                <field name="qty"/> 
+                                <field name="harga" sum="Total"/>                                        
+                            </tree>     
+                        </field> 
+                        <field name="paket_ids">
+                            <tree editable='bottom'>
+                                <field name="paket_order_id"/>  
+                                <field name="harga_satuan"/> 
+                                <field name="qty"/> 
+                                <field name="harga" sum="Total"/>                                        
+                            </tree>     
+                        </field> 
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- bakery.order action window -->
+    <record id="bakery_order_action" model="ir.actions.act_window">
+        <field name="name">Daftar Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bakery.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="bakery_order_menu_act" 
+        name="Order" 
+        parent="bakery_order_menu_categ" 
+        action="bakery_order_action" 
+        sequence="10"/>
+
+</odoo>

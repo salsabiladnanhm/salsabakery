@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- bakery.paket tree view -->
+    <record id="bakery_paket_view_tree" model="ir.ui.view">
+        <field name="name">Paket Diskon</field>
+        <field name="model">bakery.paket</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>   
+                <field name="potongan_paket"/> 
+                <field name="stok"/>
+                <field name="total_harga_paket"/>       
+                <field name="paketmenudetail_ids"/>     
+            </tree>
+        </field>
+    </record>
+
+    <!-- bakery.paket form view -->
+    <record id="bakery_paket_view_form" model="ir.ui.view">
+        <field name="name">Form Paket</field>
+        <field name="model">bakery.paket</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/> 
+                        <field name="potongan_paket"/>
+                        <field name="stok"/>
+                        <field name="total_harga_paket"/>                   
+                        <field name="paketmenudetail_ids">
+                            <tree editable='bottom'>
+                                <field name="menu_paket_id"/>  
+                                <field name="harga_satuan"/> 
+                                <field name="qty"/> 
+                                <field name="harga" sum="Total"/>                                        
+                            </tree>
+                        </field>                                                   
+                    </group> 
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- bakery_paket_action action window -->
+    <record id="bakery_paket_action" model="ir.actions.act_window">
+        <field name="name">Daftar Paket</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bakery.paket</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="bakery_paket_menu_act" 
+        name="Paket Bundling" 
+        parent="bakery_menu_menu_categ" 
+        action="bakery_paket_action" 
+        sequence="20"/>
+
+</odoo>

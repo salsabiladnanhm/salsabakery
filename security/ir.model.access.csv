@@ -1,2 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_salsabakery_salsabakery,salsabakery.salsabakery,model_salsabakery_salsabakery,base.group_user,1,1,1,1
+access_bakery_menu,access.bakery.menu,model_bakery_menu,,1,1,1,1
+access_bakery_paket,access.bakery.paket,model_bakery_paket,,1,1,1,1
+access_bakery_paketmenudetail,access.bakery.paketmenudetail,model_bakery_paketmenudetail,,1,1,1,1
+access_bakery_order,access.bakery.order,model_bakery_order,,1,1,1,1
+access_bakery_ordermenudetail,access.bakery.ordermenudetail,model_bakery_ordermenudetail,,1,1,1,1
+access_bakery_orderpaketdetail,access.bakery.orderpaketdetail,model_bakery_orderpaketdetail,,1,1,1,1

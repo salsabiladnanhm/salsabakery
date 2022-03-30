@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- bakery.menu tree view -->
+    <record id="bakery_menu_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Menu</field>
+        <field name="model">bakery.menu</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="img" widget="image"/>
+                <field name="harga"/>
+                <field name="kategori"/>
+                <field name="stok"/>
+                <field name="deskripsi"/>                
+            </tree>
+        </field>
+    </record>
+    
+    <!-- bakery.menu form view -->
+    <record id="bakery_menu_view_form" model="ir.ui.view">
+        <field name="name">Form Menu</field>
+        <field name="model">bakery.menu</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="deskripsi"/>
+                        <field name="img" widget="image"/>
+                    </group>
+                    <group>
+                        <field name="kategori"/>
+                        <field name="harga"/>
+                        <field name="stok"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- bakery.menu action window -->
+    <record id="bakery_menu_action" model="ir.actions.act_window">
+        <field name="name">Menu</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bakery.menu</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="bakery_menu_menu_act" 
+        name="Menu" 
+        parent="bakery_menu_menu_categ" 
+        action="bakery_menu_action" 
+        sequence="10"/>
+
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_bakery_order">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h1>Faktur Order Bakery</h1>
+                    <h2>
+                        <div class="row">
+                            <div class="col-4">Kode Order  :</div>
+                            <div class="col-8"><span t-field="o.name"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Nama        :</div>
+                            <div class="col-8"><span t-field="o.nama_pemesan"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Total Pembayaran  :</div>
+                            <div class="col-8"><span t-field="o.total_harga_order"/></div>
+                        </div>
+                    </h2>
+                    <h3>
+                        <div class="row">
+                            <table class="table-bordered">
+                                <tr>
+                                    <th>Menu</th>
+                                    <th>Quantity</th>
+                                </tr>
+                                <t t-foreach="o.menu_ids" t-as="m">
+                                    <tr>
+                                        <td><span t-esc="m.menu_order_id.name"/></td>
+                                        <td><span t-esc="m.qty"/></td>
+                                    </tr>                          
+                                </t>
+                                <t t-foreach="o.paket_ids" t-as="p">
+                                    <tr>
+                                        <td><span t-esc="p.paket_order_id.name"/></td>
+                                        <td><span t-esc="p.qty"/></td>
+                                    </tr>                          
+                                </t>
+                            </table>
+                        </div>
+                    </h3>
+                </div>
+            </t>
+        </t>
+    </t>    
+</template>    
+
+</odoo>
